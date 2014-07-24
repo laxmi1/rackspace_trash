@@ -4,7 +4,7 @@ require 'rdoc/task'
 #    system "ruby -rubygems resetdb.rb"
 #end
 
-task :sst, [:suite, :test_name] do |t, args|
+task :trash, [:suite, :test_name] do |t, args|
 
     if args.suite
       if File.exist?("trash_code/#{args.suite}.rb")
@@ -19,7 +19,7 @@ task :sst, [:suite, :test_name] do |t, args|
     else
         Dir.glob('trash_code/*.rb') do |file|
             suite = File.basename file
-            system "ruby -rubygems trash_code/#{suite} >>  smoke_test_output.log"
+            system "ruby -rubygems trash_code/#{suite} >>  Trash_output.log"
         end
       end
 
