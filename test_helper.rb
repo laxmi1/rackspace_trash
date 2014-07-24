@@ -11,7 +11,7 @@ require "active_support"
 #Minitest.autorun
 require 'yaml'
 
-Time.zone = "Pacific Time (US & Canada)"
+#Time.zone = "Pacific Time (US & Canada)"
 APPLICATION_CONFIG = YAML.load_file("config.yaml")
 
 # Fixtures support

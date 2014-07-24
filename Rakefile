@@ -22,5 +22,5 @@ task :sst, [:suite, :test_name] do |t, args|
             system "ruby -rubygems trash_code/#{suite} >>  smoke_test_output.log"
         end
       end
-    # system "ruby -rubygems suite_status.rb"    
+
 end

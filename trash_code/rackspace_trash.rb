@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) +  '/../test_helper.rb'
-
+load File.dirname(__FILE__) +  '/../test_helper.rb'
+#require './test_helper.rb'
 
 class Login < Test::Unit::TestCase 
 
