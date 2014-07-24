@@ -2,7 +2,6 @@ require File.dirname(__FILE__) +  '/../test_helper.rb'
 
 
 class Login < Test::Unit::TestCase 
-  fixtures :users
 
   def setup
     @driver = get_driver
@@ -17,15 +16,19 @@ class Login < Test::Unit::TestCase
   
 
   def test_rackspace_trash
+    url = APPLICATION_CONFIG["base_url"] 
+    puts "reading.. "+url+".. end"
+    #@driver.get("https://apps.rackspace.com")
+    @driver.get(@base_url)
+    @driver.find_element(:name,"user_name").send_keys APPLICATION_CONFIG["user_name"]
+    @driver.find_element(:name,"password").send_keys APPLICATION_CONFIG["pass_word"]
+    @driver.find_element(:name,"submit_btn").click
+    @driver.find_element(:link_text,"Sent").click
+    sleep(5)
+    @driver.find_element(:link_text,"Inbox").click
+    sleep(10)
 
-    @driver.get(@base_url + "/")
-    @driver.find_element(:css, 'input[name="user_name"]').clear
-    @driver.find_element(:id, "user_session_email").send_keys ""
-    @driver.find_element(:id, "user_session_email").send_keys @user_name
-    @driver.find_element(:id, "user_session_password").clear
-    @driver.find_element(:id, "user_session_password").send_keys ""
-    @driver.find_element(:id, 'input[name="password"]').send_keys @password 
-    @driver.find_element(:css, "button.button").click
+    puts "completed"
   end
 
 
