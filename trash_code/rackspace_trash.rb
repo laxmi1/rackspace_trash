@@ -17,6 +17,7 @@ class Login < Test::Unit::TestCase
   
 
   def test_rackspace_trash
+
     @driver.get(@base_url + "/")
     @driver.find_element(:css, 'input[name="user_name"]').clear
     @driver.find_element(:id, "user_session_email").send_keys ""
@@ -25,7 +26,6 @@ class Login < Test::Unit::TestCase
     @driver.find_element(:id, "user_session_password").send_keys ""
     @driver.find_element(:id, 'input[name="password"]').send_keys @password 
     @driver.find_element(:css, "button.button").click
-    assert_equal "Demo", @driver.find_element(:css, "h1.store_name").text
   end
 
 
